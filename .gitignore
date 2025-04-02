@@ -3,3 +3,7 @@ env/
 
 # aima notebooks
 aima/notebooks
+
+# pycache
+__pycache__/
+aima/__pycache__/
