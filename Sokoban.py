@@ -88,8 +88,10 @@ class Sokoban(Problem):
             if box not in self.targets:
                 min_dist = min(abs(box[0] - t[0]) + abs(box[1] - t[1]) for t in self.targets)
                 total += min_dist
-                min_agent_dist = min(abs(agent[0] - t[0]) + abs(agent[1] - t[1]) for t in self.targets)
-                total += min_agent_dist*0.5 # Reduire l'influence de la position de l'agent
+
+        min_agent_dist = min(abs(agent[0] - t[0]) + abs(agent[1] - t[1]) for t in self.targets)
+        total += min_agent_dist*0.5 # Reduire l'influence de la position de l'agent
+        
         return total
     
     def path_cost(self, c, state1, action, state2):

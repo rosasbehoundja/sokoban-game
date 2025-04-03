@@ -9,6 +9,13 @@ Sokoban is a puzzle game where the player must push boxes onto target locations 
 - The player cannot pull boxes, only push them.
 - The player cannot pass through walls or boxes.
 
+![Representation](media/image.png)
+
+- @ represents the agent
+- "#" represents the walls
+- $ represents the boxes
+- . reprensents the boxes targets position
+
 ## Project Objectives
 
 - Implement a functional version of the Sokoban game.
@@ -30,8 +37,8 @@ Sokoban is a puzzle game where the player must push boxes onto target locations 
 
 1. Clone the project repository:
     ```bash
-    git clone <REPOSITORY_URL>
-    cd Sokoban
+    git clone https://github.com/rosasbehoundja/sokoban-game.git
+    cd sokoban-game
     ```
 2. Install the dependencies:
     ```bash
@@ -40,19 +47,16 @@ Sokoban is a puzzle game where the player must push boxes onto target locations 
 
 ## Usage
 
-1. Run the Sokoban game:
+1. To execute the automatic solving algorithms:
     ```bash
-    python sokoban.py
+    python solve.py <game_level> <algorithm_choice>
     ```
-2. To execute the automatic solving algorithms:
-    ```bash
-    python solver.py
-    ```
+
+![Demo video](media/output.gif)
 
 ## Authors
 
 This project was created by IFRI students as part of the Research Techniques course.
 
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+ - [Emmanuella GBODO](gbodoemmanuella40@gmail.com)
+ - [Rosas BEHOUNDJA](perrierosas@gmail.com)
