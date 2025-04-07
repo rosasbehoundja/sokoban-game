@@ -1,62 +1,62 @@
-# Sokoban Project
+# Projet Sokoban
 
-This project is developed as part of the Research Techniques course.
+Ce projet est développé dans le cadre du cours de Techniques de Recherche.
 
 ## Description
 
-Sokoban is a puzzle game where the player must push boxes onto target locations in a maze. The goal is to solve each level by placing all the boxes on the targets while adhering to the following rules:
-- Boxes can only be pushed one at a time.
-- The player cannot pull boxes, only push them.
-- The player cannot pass through walls or boxes.
+Sokoban est un jeu de puzzle où le joueur doit pousser des boîtes vers des emplacements cibles dans un labyrinthe. L'objectif est de résoudre chaque niveau en plaçant toutes les boîtes sur les cibles tout en respectant les règles suivantes :
+- Les boîtes ne peuvent être poussées qu'une à la fois.
+- Le joueur ne peut pas tirer les boîtes, seulement les pousser.
+- Le joueur ne peut pas traverser les murs ou les boîtes.
 
-![Representation](media/image.png)
+![Représentation](media/image.png)
 
-- @ represents the agent
-- "#" represents the walls
-- $ represents the boxes
-- . reprensents the boxes targets position
+- @ représente l'agent
+- "#" représente les murs
+- $ représente les boîtes
+- . représente les positions cibles des boîtes
 
-## Project Objectives
+## Objectifs du Projet
 
-- Implement a functional version of the Sokoban game.
-- Explore and apply search techniques to automatically solve game levels.
-- Study and compare different algorithmic approaches to solving the puzzles.
+- Implémenter une version fonctionnelle du jeu Sokoban.
+- Explorer et appliquer des techniques de recherche pour résoudre automatiquement les niveaux du jeu.
+- Étudier et comparer différentes approches algorithmiques pour résoudre les puzzles.
 
-## Project Structure
+## Structure du Projet
 
-- **Source Code**: Contains the implementation of the game and solving algorithms.
-- **Documentation**: Provides explanations of the algorithms used and design choices.
-- **Tests**: Includes test levels and scripts to validate solutions.
+- **Code Source**: Contient l'implémentation du jeu et des algorithmes de résolution.
+- **Documentation**: Fournit des explications sur les algorithmes utilisés et les choix de conception.
+- **Tests**: Inclut des niveaux de test et des scripts pour valider les solutions.
 
-## Prerequisites
+## Prérequis
 
 - Python 3.x
-- Required libraries (to be installed via `requirements.txt`)
+- Bibliothèques requises (à installer via `requirements.txt`)
 
 ## Installation
 
-1. Clone the project repository:
+1. Cloner le dépôt du projet :
     ```bash
     git clone https://github.com/rosasbehoundja/sokoban-game.git
     cd sokoban-game
     ```
-2. Install the dependencies:
+2. Installer les dépendances :
     ```bash
     pip install -r requirements.txt
     ```
 
-## Usage
+## Utilisation
 
-1. To execute the automatic solving algorithms:
+1. Pour exécuter les algorithmes de résolution automatique :
     ```bash
-    python solve.py <game_level> <algorithm_choice>
+    python solve.py --level <niveau_jeu> --method <choix_algorithme>
     ```
 
-![Demo video](media/output.gif)
+![Vidéo démo](media/output.gif)
 
-## Authors
+## Auteurs
 
-This project was created by IFRI students as part of the Research Techniques course.
+Ce projet a été créé par des étudiants de l'IFRI dans le cadre du cours de Techniques de Recherche.
 
- - [Emmanuella GBODO](gbodoemmanuella40@gmail.com)
- - [Rosas BEHOUNDJA](perrierosas@gmail.com)
+ - [Emmanuella GBODO](mailto:gbodoemmanuella40@gmail.com)
+ - [Rosas BEHOUNDJA](mailto:perrierosas@gmail.com)

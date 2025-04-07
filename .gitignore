@@ -1,12 +1,19 @@
-# virtual env
+# Python virtual environments
 env/
 
-# vs cache
-__pycache__/*.pyc
-aima/__pycache__/*.pyc
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+aima/__pycache__/
+tests/__pycache__/
 
-# aima notebooks
-aima/notebooks
+# Jupyter Notebook
+.ipynb_checkpoints
+aima/notebooks/
 
-# video
+# Media files
 media/sokoban.webm
+
+# Logs
+*.log
