@@ -75,10 +75,12 @@ def main(level:str, method:str):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Récupère le niveau de jeu et le type d'algorithme à utiliser")
-    parser.add_argument("level", type=str, help="Niveau de jeu")
-    parser.add_argument("method", type=str, help="Type d'algorithme à utiliser")
+    parser.add_argument("--level", required=False, help="Niveau de jeu")
+    parser.add_argument("--method", required=False, help="Type d'algorithme à utiliser")
 
     args = parser.parse_args()
     level, method = args.level, args.method
-
-    main(level, method)
+    if level and method:
+        main(level, method)
+    else:
+        main("01", "bfs")

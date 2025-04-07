@@ -10,9 +10,6 @@ class Sokoban(Problem):
         self.walls = walls
 
     def actions(self, state):
-        """
-        Take the state and returns the actions that can be executed.
-        """
         directions = [('Up', (0, -1)), ('Down', (0, 1)), ('Left', (-1, 0)), ('Right', (1, 0))]
         valid_actions = [] # liste des actions valides
         agent, boxes = state # position de l'agent & des boxes
@@ -37,9 +34,6 @@ class Sokoban(Problem):
         return valid_actions
 
     def result(self, state, action):
-        """
-        Update state
-        """
         directions = {
             'Up': (0, -1),
             'Down': (0, 1),
@@ -74,9 +68,6 @@ class Sokoban(Problem):
         return False
 
     def goal_test(self, state):
-        """
-        Tell us if we reach the goal state
-        """
         _, boxes = state
         return all(box in self.targets for box in boxes)
     
@@ -88,14 +79,13 @@ class Sokoban(Problem):
             if box not in self.targets:
                 min_dist = min(abs(box[0] - t[0]) + abs(box[1] - t[1]) for t in self.targets)
                 total += min_dist
-                min_agent_dist = min(abs(agent[0] - t[0]) + abs(agent[1] - t[1]) for t in self.targets)
-                total += min_agent_dist*0.5 # Reduire l'influence de la position de l'agent
+
+        min_agent_dist = min(abs(agent[0] - t[0]) + abs(agent[1] - t[1]) for t in self.targets)
+        total += min_agent_dist*0.5 # Reduire l'influence de la position de l'agent
+        
         return total
     
     def path_cost(self, c, state1, action, state2):
-        """
-        Return cost of path from state1 to state2 given action
-        """
         _, boxes1 = state1
         _, boxes2 = state2
 
