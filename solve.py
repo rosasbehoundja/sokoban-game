@@ -60,15 +60,20 @@ def main(level:str, method:str):
         print(f" - Algorithme à utiliser: Greedy-best-first-search\n")
         solution = greedy_best_first_graph_search(problem, f=problem.h)
 
+    nbre_noeuds = problem.get_explored_nodes()
+
     end_time = time.time() - start_time
 
     if solution:
-        for state in solution.path():
-            print_state(state.state, walls, width=width, height=height, targets=targets)
-            print()
+        verbose = input("Afficher les états ? (0/N): ")
+        if verbose.lower() == "o":
+            for state in solution.path():
+                print_state(state.state, walls, width=width, height=height, targets=targets)
+                print()
         print(f" - Level du jeu: {level}")
         print(f"Solution trouvée avec {method} en {len(solution.path())-1} mouvements")
         print(f"Temps d'exécution: {end_time:.4f} secondes")
+        print(f"Nombre de noeuds explorés : {nbre_noeuds}")
     else:
         print("Aucune solution trouvée")
         print(f"Temps d'exécution: {end_time:.4f} secondes")

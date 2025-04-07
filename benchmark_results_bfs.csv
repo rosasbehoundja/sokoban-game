@@ -1,0 +1,6 @@
+Level,Method,Success,Steps,Time(s),NodesExplored
+01,bfs,Yes,14,0.1093,2136
+02,bfs,Yes,64,0.1388,6671
+03,bfs,Yes,134,196.2464,470571
+04,bfs,Yes,25,2068.7088,480192
+05,bfs,Yes,107,10.9187,56368

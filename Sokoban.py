@@ -8,6 +8,7 @@ class Sokoban(Problem):
         self.initial = initial
         self.targets = targets
         self.walls = walls
+        self.explored_nodes = 0
 
     def actions(self, state):
         directions = [('Up', (0, -1)), ('Down', (0, 1)), ('Left', (-1, 0)), ('Right', (1, 0))]
@@ -34,6 +35,7 @@ class Sokoban(Problem):
         return valid_actions
 
     def result(self, state, action):
+        self.explored_nodes += 1
         directions = {
             'Up': (0, -1),
             'Down': (0, 1),
@@ -92,3 +94,6 @@ class Sokoban(Problem):
         if boxes1 != boxes2:
             return c + 2
         return c + 1
+    
+    def get_explored_nodes(self):
+        return self.explored_nodes
