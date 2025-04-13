@@ -94,4 +94,4 @@ The project offers several admissible heuristics to guide informed search algori
 This project was created by IFRI students as part of the Search Techniques course.
 
  - [Emmanuella GBODO](mailto:gbodoemmanuella40@gmail.com)
- - [Rosas BEHOUNDJA](rosasbehoundja.github.io)
+ - [Rosas BEHOUNDJA](https://rosasbehoundja.github.io/)
