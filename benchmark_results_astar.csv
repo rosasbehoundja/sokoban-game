@@ -1,4 +1,0 @@
-Level,Method,Success,Steps,Time(s),NodesExplored
-01,astar,Yes,14,0.2252,1582
-02,astar,Yes,64,0.2740,6528
-03,astar,Yes,134,812.1741,470579
