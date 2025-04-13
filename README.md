@@ -1,62 +1,97 @@
-# Projet Sokoban
+# Sokoban Project
 
-Ce projet est développé dans le cadre du cours de Techniques de Recherche.
+This project was developed as part of the Search Techniques course.
 
 ## Description
 
-Sokoban est un jeu de puzzle où le joueur doit pousser des boîtes vers des emplacements cibles dans un labyrinthe. L'objectif est de résoudre chaque niveau en plaçant toutes les boîtes sur les cibles tout en respectant les règles suivantes :
-- Les boîtes ne peuvent être poussées qu'une à la fois.
-- Le joueur ne peut pas tirer les boîtes, seulement les pousser.
-- Le joueur ne peut pas traverser les murs ou les boîtes.
+Sokoban is a puzzle game where the player must push boxes onto target locations in a maze. The objective is to solve each level by placing all the boxes on the targets while following these rules:
+- Boxes can only be pushed one at a time.
+- The player cannot pull boxes, only push them.
+- The player cannot move through walls or boxes.
 
-![Représentation](media/image.png)
+```
+        ##########                ##########
+        #        #                #    .   #
+        #   $  $ #                #        #
+        #@       #                #     .  #
+        ##########                ##########
 
-- @ représente l'agent
-- "#" représente les murs
-- $ représente les boîtes
-- . représente les positions cibles des boîtes
+        Initial State             Goal Positions
+```
 
-## Objectifs du Projet
+- @ represents the agent
+- "#" represents walls
+- $ represents boxes
+- . represents target positions for the boxes
 
-- Implémenter une version fonctionnelle du jeu Sokoban.
-- Explorer et appliquer des techniques de recherche pour résoudre automatiquement les niveaux du jeu.
-- Étudier et comparer différentes approches algorithmiques pour résoudre les puzzles.
+## Project Objectives
 
-## Structure du Projet
+- Implement a functional version of the Sokoban game.
+- Explore and apply search techniques to automatically solve game levels.
+- Study and compare different algorithmic approaches to solve the puzzles.
 
-- **Code Source**: Contient l'implémentation du jeu et des algorithmes de résolution.
-- **Documentation**: Fournit des explications sur les algorithmes utilisés et les choix de conception.
-- **Tests**: Inclut des niveaux de test et des scripts pour valider les solutions.
+## Project Structure
 
-## Prérequis
+- **Source Code**: Contains the game implementation and solution algorithms.
+- **Documentation**: Provides explanations of the algorithms used and design choices.
+- **Tests**: Includes test levels and scripts to validate solutions.
+
+## Implemented Heuristics
+
+The project offers several admissible heuristics to guide informed search algorithms (A* and GBFS):
+
+### 1. Manhattan Distance (manhattan)
+- **Description**: Calculates the sum of Manhattan distances between each box and its closest target.
+- **Complexity**: O(n×m) where n is the number of boxes and m the number of targets.
+- **Advantages**: Simple and quick to calculate.
+- **Disadvantages**: May overestimate the actual difficulty as multiple boxes can be assigned to the same target.
+
+### 2. Greedy Matching Distance (greedy_matching)
+- **Description**: An intermediate heuristic that greedily assigns each box to its closest target, ensuring that each target is assigned to only one box.
+- **Complexity**: O(n²) where n is the number of boxes/targets.
+- **Advantages**: Good balance between accuracy and calculation speed. Avoids the multiple assignment problem of Manhattan distance.
+- **Recommended Use**: For medium to high difficulty levels.
+
+## Recommendations for Using Heuristics
+- **Simple levels**: Manhattan Distance (manhattan) - fastest
+- **Complex levels**: Greedy Matching (greedy_matching) - good balance
+
+## Prerequisites
 
 - Python 3.x
-- Bibliothèques requises (à installer via `requirements.txt`)
+- Required libraries (install via `requirements.txt`)
 
 ## Installation
 
-1. Cloner le dépôt du projet :
+1. Clone the project repository:
     ```bash
     git clone https://github.com/rosasbehoundja/sokoban-game.git
     cd sokoban-game
     ```
-2. Installer les dépendances :
+2. Install dependencies:
     ```bash
     pip install -r requirements.txt
     ```
 
-## Utilisation
+## Usage
 
-1. Pour exécuter les algorithmes de résolution automatique :
+1. To run the automatic solution algorithms:
     ```bash
-    python solve.py --level <niveau_jeu> --method <choix_algorithme>
+    python solve.py -l <game_level> -m <algorithm_choice> -hu <heuristic>
+    ```
+    
+    Examples:
+    ```bash
+    # Use A* with greedy matching heuristic
+    python solve.py -l 01 -m astar -hu greedy_matching
+    
+    # Use Greedy Best-First Search with manhattan distance
+    python solve.py -l 02 -m gbfs -hu manhattan
     ```
 
-![Vidéo démo](media/output.gif)
+## Authors
 
-## Auteurs
-
-Ce projet a été créé par des étudiants de l'IFRI dans le cadre du cours de Techniques de Recherche.
+This project was created by IFRI students as part of the Search Techniques course.
 
  - [Emmanuella GBODO](mailto:gbodoemmanuella40@gmail.com)
- - [Rosas BEHOUNDJA](mailto:perrierosas@gmail.com)
+ - [Rosas BEHOUNDJA](rosasbehoundja.github.io)

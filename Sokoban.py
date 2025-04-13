@@ -1,18 +1,23 @@
 from aima.search import Problem
-from game_board import getGameBoard, print_state
+from heuristics import manhattan_distance, greedy_matching_distance
 
 class Sokoban(Problem):
 
-    def __init__(self, initial, targets, walls):
+    def __init__(self, initial, targets, walls, heuristic_type='manhattan'):
         super().__init__(initial)
         self.initial = initial
         self.targets = targets
         self.walls = walls
+        self.explored_nodes = 0
+        self.heuristic_type = heuristic_type
 
     def actions(self, state):
         directions = [('Up', (0, -1)), ('Down', (0, 1)), ('Left', (-1, 0)), ('Right', (1, 0))]
         valid_actions = [] # liste des actions valides
         agent, boxes = state # position de l'agent & des boxes
+
+        # Add this node to explored nodes
+        self.explored_nodes += 1
 
         for action, (dx, dy) in directions:
             new_x = agent[0] + dx
@@ -73,17 +78,10 @@ class Sokoban(Problem):
     
     def h(self, node):
         """Fonction heuristique pour les algorithmes de recherche informée"""
-        total = 0
-        agent, boxes = node.state
-        for box in boxes:
-            if box not in self.targets:
-                min_dist = min(abs(box[0] - t[0]) + abs(box[1] - t[1]) for t in self.targets)
-                total += min_dist
-
-        min_agent_dist = min(abs(agent[0] - t[0]) + abs(agent[1] - t[1]) for t in self.targets)
-        total += min_agent_dist*0.5 # Reduire l'influence de la position de l'agent
-        
-        return total
+        if self.heuristic_type == 'greedy_matching':
+            return greedy_matching_distance(self, node)
+        else:
+            return manhattan_distance(self, node)
     
     def path_cost(self, c, state1, action, state2):
         _, boxes1 = state1
@@ -92,3 +90,6 @@ class Sokoban(Problem):
         if boxes1 != boxes2:
             return c + 2
         return c + 1
+    
+    def get_explored_nodes(self):
+        return self.explored_nodes
